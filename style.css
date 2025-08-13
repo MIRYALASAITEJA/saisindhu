@@ -1,0 +1,116 @@
+/* style.css - Professional Event Booking Design */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #ff6b35;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+/* Inputs & Select */
+select, input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Button */
+button {
+    background: #ff6b35;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #e65a2b;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* Vertical Image Scroll (Index Page) */
+.scroll-container {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.scroll-images {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 20s linear infinite;
+}
+
+.scroll-images img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+/* Ticket Page Styles */
+.ticket-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.ticket-box h2 {
+    color: #ff6b35;
+}
+
+.ticket-details {
+    text-align: left;
+    margin-top: 20px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}

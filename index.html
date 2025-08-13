@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking - Home</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font for Professional Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        function updateCities() {
+            let country = document.getElementById("country").value;
+            let citySelect = document.getElementById("city");
+            citySelect.innerHTML = "<option value=''>--Select City--</option>";
+
+            let cities = {
+                "India": ["Hyderabad", "Delhi", "Mumbai"],
+                "USA": ["New York", "Los Angeles", "Chicago"],
+                "UK": ["London", "Manchester", "Birmingham"]
+            };
+
+            if (country && cities[country]) {
+                cities[country].forEach(city => {
+                    let option = document.createElement("option");
+                    option.value = city;
+                    option.text = city;
+                    citySelect.add(option);
+                });
+            }
+        }
+
+        function goToBooking() {
+            let country = document.getElementById("country").value;
+            let city = document.getElementById("city").value;
+            let eventType = document.getElementById("eventType").value;
+
+            if (!country || !city || !eventType) {
+                alert("Please select all fields before booking.");
+                return;
+            }
+
+            // Save selections for the booking page
+            localStorage.setItem("country", country);
+            localStorage.setItem("city", city);
+            localStorage.setItem("eventType", eventType);
+
+            window.location.href = "booking.html";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Event Booking System</h1>
+        <p>Find and book events in your city easily</p>
+    </header>
+
+    <div class="container">
+        <label>Select Country:</label>
+        <select id="country" onchange="updateCities()">
+            <option value="">--Select Country--</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+        </select>
+
+        <label>Select City:</label>
+        <select id="city">
+            <option value="">--Select City--</option>
+        </select>
+        <label>Event Category:</label>
+        <select id="eventType">
+            <option value="">-- Select Category --</option>
+            <option>AI</option>
+            <option>Business applications</option>
+            <option>Cloud platform</option>
+            <option>Data and analytics</option>
+            <option>Developer tools</option>
+            <option>Industry focused</option>
+            <option>Productivity</option>
+            <option>Security</option>
+            <option>Azure</option>
+            <option>Microsoft 365</option>
+            <option>Power Platform</option>
+            <option>Surface</option>
+            <option>Windows</option>
+        </select>
+
+
+        <!-- Auto Vertical Scroll Image Banner -->
+        <div class="scroll-container">
+            <div class="scroll-images">
+                <img src="https://source.unsplash.com/1200x600/?conference" alt="Event 1">
+                <img src="https://source.unsplash.com/1200x600/?seminar" alt="Event 2">
+                <img src="https://source.unsplash.com/1200x600/?workshop" alt="Event 3">
+                <img src="https://source.unsplash.com/1200x600/?camp" alt="Event 4">
+            </div>
+        </div>
+
+        <button onclick="goToBooking()">Book Now</button>
+    </div>
+
+    <footer>© 2025 Sai Sindhu | Event Booking System</footer>
+</body>
+</html>

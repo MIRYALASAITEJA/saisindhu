@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Ticket</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Full-screen centering for the ticket page */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #28a745;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        #ticketInfo {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        #qrcode {
+            margin-top: 20px;
+        }
+
+        .scan-message {
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #555;
+            background: #fff8e1;
+            padding: 8px 15px;
+            border-radius: 6px;
+            border: 1px solid #ffcc80;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script>
+        window.onload = function() {
+            let ticketInfo = 
+                "Name: " + localStorage.getItem("name") +
+                " | Event: " + localStorage.getItem("eventType") +
+                " | City: " + localStorage.getItem("city");
+
+            document.getElementById("ticketInfo").innerText = ticketInfo;
+            new QRCode(document.getElementById("qrcode"), ticketInfo);
+        }
+    </script>
+</head>
+<body>
+    <header>Ticket Confirmation</header>
+    <div class="container">
+      <h1>Payment</h1>
+        <p id="ticketInfo"></p>
+        <div id="qrcode"></div>
+        <p class="scan-message">📌 Please scan this QR code and complete the Payment . after completion your will get Entrance QR to your mail. </p>
+    </div>
+    <footer>© 2025 Sai Sindhu</footer>
+</body>
+</html>
